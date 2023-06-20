@@ -14,3 +14,10 @@ RUN curl -OL https://github.com/Kitware/CMake/releases/download/v${CMAKE_VER}/cm
     tar xvf cmake-${CMAKE_VER}-linux-x86_64.tar.gz && \
     cp -rv cmake-${CMAKE_VER}-linux-x86_64/* /usr && \
     rm -rf cmake-*
+
+# Install glslang
+RUN cd /tmp
+RUN wget https://github.com/KhronosGroup/glslang/releases/download/main-tot/glslang-main-linux-Release.zip
+RUN unzip glslang-main-linux-Release.zip -d glslang
+RUN cp -rv glslang/* /usr
+run rm -rf glslang-*
